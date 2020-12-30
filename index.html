@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"></link>
+    
+</head>
+
+<body>
+    <div id="list-section">
+        <h1 id="header">To-do list
+
+        </h1>
+        <ul>
+            <li class="item"></li>
+        </ul>
+        <div id="newItemButton">
+            <button href='#'>new item</button>
+        </div>
+        <form id="newItemForm">
+            <input type="text" id="itemField" placeholder="item">
+            <input type="submit" id="add" value="add">
+        </form>
+    </div>
+   <div>
+    <button onclick='saluer()'>salut</button>
+    <button onclick='Lomic()'>Lomic</button>
+    <p>blablabla</p>
+   </div>
+    
+
+    <div id="box">Click me to grow</div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        saluer = () => {
+            alert("mael est vilaine");
+        }
+
+        Lomic = () => {
+            alert('Je m\'appelle Lomic et j\'aime casser les pieds!')
+        }
+
+        $('p').on('click', () => {
+            var date = new Date(event.timeStamp);
+            $('p').text('Aujourd\'hui nous sommes ' + date);
+            $('p').css('font-size', '30px');
+        })
+
+        $("#box").one("click", () => {
+            $('#box').css("width", "+=200");
+        });
+    </script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>

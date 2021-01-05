@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <form>
+        Laissez aller votre imagination : saisissez quelques mots<br />
+        <textarea id="saisie"></textarea>
+      </form><br />
+      Caractère saisi : <span id="unelettre"></span>
+      <hr>
+    <div id="lumiere"></div>
+<textarea id="target1"></textarea>
+<hr>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        Cliquez sur l'image avec un des boutons de la souris.<br ></code>
+
+
+    <img id="target" src="2764.png"><br />
+    <span id="rapport"></span>
+
+<script>
+
+$(function() {
+    $('#saisie').keypress(function(e) {
+      $('#unelettre').text(e.which);  //keyCode
+    });
+  });
+
+
+     $(function() {
+    $('#target1').keydown(function(){
+      $('#lumiere').css('background-color', 'green');
+    });
+    $('#target1').keyup(function(){
+        $('#lumiere').css('background-color', 'red');
+    });
+  });
+     $(function() {
+    $('#target').mousedown(function(e){
+      $('#rapport').html('Événement : ' + e.type + '. Bouton pressé : ' +  e.which );
+    });
+  });
+     $(function() {
+    $('div').scroll(function() {
+      alert('Utilisation de la roulette dans la balise <div>');
+    });
+    $(window).scroll(function() {
+      alert('Utilisation de la roulette dans le document');
+    });
+  });
+
+  $(function() {
+    // Dimensions de la fenêtre
+    var largeur = ($(window).width()) - 50;
+    var hauteur = ($(window).height()) - 50;
+
+    // Affichage de la première image en (100, 100)
+    var p = $('#target').offset();
+    p.top=100;
+    p.left=100;
+    $('#target').offset(p);
+    
+    // Gestion du clic et déplacement de l'image
+    $("#target").click(function() {
+      x = Math.floor(Math.random()*largeur);
+      y = Math.floor(Math.random()*hauteur);
+      var p = $('#target').offset();
+      p.top = y;
+      p.left = x;
+      $('#target').offset(p);
+    });
+  });
+</script>
+</body>
+</html>

@@ -68,6 +68,13 @@ AfficheMessage3 = () => {
         
         $('body').css("background-image","url('images/anniversaire.png')");
         $('#myDIV').css('background', 'none');
+      
+            $('#myDIV').fadeOut("slow", () => {
+                $('#myDIV').fadeIn('slow')
+            } 
+            )
+
+        
 
 
     })
